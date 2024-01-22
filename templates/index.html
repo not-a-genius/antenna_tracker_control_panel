@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <!-- Meta necessari -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='icons/menu-button-wide.svg') }}"
+    />
+    <title>GPS Control Board</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.css') }}"
+    />
+
+    <title>Pagina di prova</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+            <div
+              class="collapse navbar-collapse"
+              id="bs-example-navbar-collapse-1"
+            >
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#"
+                    >Link <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="http://example.com"
+                    id="navbarDropdownMenuLink"
+                    data-toggle="dropdown"
+                    >Dropdown link</a
+                  >
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                  </div>
+                </li>
+              </ul>
+              <form class="form-inline">
+                <input class="form-control mr-sm-2" type="text" />
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                  Search
+                </button>
+              </form>
+              <ul class="navbar-nav ml-md-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#"
+                    >Link <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="http://example.com"
+                    id="navbarDropdownMenuLink"
+                    data-toggle="dropdown"
+                    >Dropdown link</a
+                  >
+                  <div
+                    class="dropdown-menu dropdown-menu-right"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <h3>Antenna Tracker Control Panel</h3>
+          <button type="button" class="btn btn-success">Button</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h3 class="text-center">GNSS Receiver Values</h3>
+          <table class="table table-sm table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Status</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>GPS Status</td>
+                <td>*</td>
+                <td>Default</td>
+              </tr>
+              <tr class="table-active">
+                <td>2</td>
+                <td>Sats Number</td>
+                <td>*</td>
+                <td>-</td>
+              </tr>
+              <tr class="table-success">
+                <td>3</td>
+                <td>Latitude</td>
+                <td>*</td>
+                <td>-</td>
+              </tr>
+              <tr class="table-warning">
+                <td>4</td>
+                <td>Longitude</td>
+                <td>*</td>
+                <td>-</td>
+              </tr>
+              <tr class="table-danger">
+                <td>5</td>
+                <td>Altitude</td>
+                <td>*</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <h3 class="text-center">Antenna Tracker Values</h3>
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Status</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>IMU</td>
+                <td>*</td>
+                <td>Default</td>
+              </tr>
+              <tr class="table-active">
+                <td>2</td>
+                <td>Mag</td>
+                <td>*</td>
+                <td>-</td>
+              </tr>
+              <tr class="table-success">
+                <td>3</td>
+                <td>TMC2209_Elevation</td>
+                <td>*</td>
+                <td>-</td>
+              </tr>
+              <tr class="table-warning">
+                <td>4</td>
+                <td>TMC2209_Azimuth</td>
+                <td>*</td>
+                <td>-</td>
+              </tr>
+              <tr class="table-danger">
+                <td>5</td>
+                <td>Azimuth Degree</td>
+                <td>*</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="customRange1"
+            >Azimuth: <span id="rangeValue1"></span
+          ></label>
+          <input
+            type="range"
+            class="custom-range"
+            id="customRange1"
+            min="-90"
+            max="90"
+            value="0"
+            oninput="document.getElementById('rangeValue1').innerText = this.value"
+          />
+          <label for="customRange2" class="mt-3"
+            >Elevation: <span id="rangeValue2"></span
+          ></label>
+          <input
+            type="range"
+            class="custom-range"
+            id="customRange2"
+            min="-90"
+            max="90"
+            value="0"
+            oninput="document.getElementById('rangeValue2').innerText = this.value"
+          />
+          <button class="btn btn-primary mt-2">Centra Azimuth</button>
+          <button class="btn btn-primary mt-2">Centra Elevation</button>
+          <button class="btn btn-primary mt-2">Centra AZ/EL</button>
+        </div>
+        <div class="col-md-6">
+          <iframe
+            width="100%"
+            height="400"
+            frameborder="0"
+            src="https://www.bing.com/maps/embed?h=400&w=500&cp=37.09024~-95.712891&lvl=5&typ=d&sty=r&src=SHELL&FORM=MBEDV8"
+            scrolling="no"
+          >
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

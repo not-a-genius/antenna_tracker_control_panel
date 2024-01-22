@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PS4 Controller L2 and R2 Visualizer</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.socket.io/4.7.3/socket.io.min.js"
+      integrity="sha384-+miq58Ltmjm+SSP5g8Ok6dpMO/6R4n8xe/x1Yj0Bdb9kiEz25LTnWv/GZQTRQamg"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" charset="utf-8">
+      document.addEventListener("DOMContentLoaded", function () {
+        var socket = io.connect();
+
+        socket.on("connect_error", function (err) {
+          el = document.getElementById("ps4_status");
+          el.textContent = "Not Connected: " + err;
+          el.className = "alert alert-error d-inline-block";
+        });
+
+        socket.on("connect", function () {
+          socket.emit("welcome", { data: "ACK from client" });
+          el = document.getElementById("ps4_status");
+          el.textContent = "Connected to PS4 Controller";
+          el.className = "alert alert-success d-inline-block";
+        });
+
+        socket.on("controller_data", function (data) {
+          document.getElementById("l2_x_value").textContent =
+            data.l2_x.toFixed(2);
+          document.getElementById("l2_y_value").textContent =
+            data.l2_y.toFixed(2);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5 mb-4">PS4 Controller L2 and R2 Axis Monitor</h1>
+      <div class="card mb-3">
+        <div class="card-header">Joystick Status</div>
+        <div class="card-body">
+          <div class="d-flex">
+            <div
+              class="alert alert-secondary d-inline-block"
+              role="alert"
+              id="ps4_status"
+            >
+              Not Connected
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+       
+        <div class="col-md-6">
+          <div class="card mb-3">
+            <div class="card-header">L2 Stick Values</div>
+            <div class="card-body">
+
+                <div class="d-flex">
+                    <div class="d-inline-block card-text mr-5" >
+                        <p>L2 (Y-Axis)</p>
+                    </div>
+                    <div class="d-inline-block card-text" >
+                        <p id="l2_y_value">0</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="d-inline-block card-text mr-5" >
+                        <p>L2 (X-Axis)</p>
+                    </div>
+                    <div class="d-inline-block card-text" >
+                        <p id="l2_x_value">0</p>
+                    </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+              <div class="card-header">R2 Axis Value</div>
+              <div class="card-body">
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.5/dist/umd/popper.min.js"
+      integrity="sha384-9gVQ4dYFwwWjKZBGVf2eZ0qpkzsFwXe1Tiggy4r8x1TtV3rFhaq4VVrkh5P9G5Gp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+GWB7rFdQ0n8FfCtFwJAcf6XqJ0iFz+5uJj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
